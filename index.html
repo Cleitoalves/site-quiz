@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de JavaScript e Programação Web</title>
+</head>
+<body>
+    <h1>Quiz de JavaScript e Programação Web</h1>
+    
+    
+    <p>1. Qual das alternativas a seguir é usada para declarar uma variável em JavaScript, garantindo que ela só será acessível no bloco onde foi definida?</p>
+    <label><input type="radio" name="q1" value="A"> A) var</label><br>
+    <label><input type="radio" name="q1" value="B"> B) const</label><br>
+    <label><input type="radio" name="q1" value="C"> C) let</label><br>
+    <label><input type="radio" name="q1" value="D"> D) global</label>
+
+    <p>2. Qual é o resultado de typeof null em JavaScript?</p>
+    <label><input type="radio" name="q2" value="A"> A) "undefined"</label><br>
+    <label><input type="radio" name="q2" value="B"> B) "null"</label><br>
+    <label><input type="radio" name="q2" value="C"> C) "object"</label><br>
+    <label><input type="radio" name="q2" value="D"> D) "string"</label>
+
+    
+    <p>3. Qual método é usado para remover o último elemento de um array em JavaScript?</p>
+    <label><input type="radio" name="q3" value="A"> A) pop()</label><br>
+    <label><input type="radio" name="q3" value="B"> B) shift()</label><br>
+    <label><input type="radio" name="q3" value="C"> C) remove()</label><br>
+    <label><input type="radio" name="q3" value="D"> D) delete()</label>
+
+  
+    <p>4. O que a função document.querySelector('.classe') faz em JavaScript?</p>
+    <label><input type="radio" name="q4" value="A"> A) Retorna o primeiro elemento com a classe especificada.</label><br>
+    <label><input type="radio" name="q4" value="B"> B) Retorna todos os elementos com a classe especificada.</label><br>
+    <label><input type="radio" name="q4" value="C"> C) Retorna o primeiro elemento com o ID especificado.</label><br>
+    <label><input type="radio" name="q4" value="D"> D) Retorna todos os elementos com o ID especificado.</label>
+
+    <p>5. Em JavaScript, o que o operador % faz?</p>
+    <label><input type="radio" name="q5" value="A"> A) Divide dois números.</label><br>
+    <label><input type="radio" name="q5" value="B"> B) Retorna o resto de uma divisão.</label><br>
+    <label><input type="radio" name="q5" value="C"> C) Exponencia um número.</label><br>
+    <label><input type="radio" name="q5" value="D"> D) Concatena duas strings.</label>
+
+    
+    <button onclick="calcularResultado()">Ver Resultado</button>
+
+    
+    <p id="resultado"></p>
+
+    <script>
+       
+        const respostasCorretas = ["C", "C", "A", "A", "B"];
+
+        function calcularResultado() {
+            let acertos = 0;
+
+           
+            for (let i = 1; i <= respostasCorretas.length; i++) {
+                const respostaUsuario = document.querySelector(`input[name="q${i}"]:checked`);
+                
+                
+                if (respostaUsuario && respostaUsuario.value === respostasCorretas[i - 1]) {
+                    acertos++;
+                }
+            }
+
+            
+            const erros = respostasCorretas.length - acertos;
+
+           
+            document.getElementById("resultado").innerText = `Número de acertos: ${acertos}\nNúmero de erros: ${erros}`;
+        }
+    </script>
+</body>
+</html>
